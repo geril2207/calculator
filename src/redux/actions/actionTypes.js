@@ -1,0 +1,5 @@
+export const CALC_OPERATION = 'CALC_OPERATION'
+export const CALC_INNER = 'CALC_INNER'
+export const CALC_DELETE_ONE = 'CALC_DELETE_ONE'
+export const CALC_DELETE = 'CALC_DELETE'
+export const CALC_EQUALS = 'CALC_EQUALS'
