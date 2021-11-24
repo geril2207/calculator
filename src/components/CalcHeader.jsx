@@ -5,17 +5,27 @@ const CalcHeader = () => {
   const { operationString, number, result, showResult } = useSelector(
     (state) => state.calc
   )
-  console.log(number.length)
+
+  const checkLengthOne = () => {
+    if (operationString.length >= 9) {
+      return 308 / operationString.length
+    }
+    return 20
+  }
+  const checkLengthTwo = () => {
+    if (number.length >= 9) {
+      return 308 / number.length
+    }
+    if (result.length >= 9) {
+      return 308 / result.length
+    }
+    return 48
+  }
   return (
     <>
       <div
         style={{
-          fontSize:
-            number.length <= 9
-              ? '24px'
-              : operationString.length <= 9
-              ? '24px'
-              : 308 / operationString.length,
+          fontSize: `${checkLengthOne()}px`,
         }}
         className={`calc__result ${
           operationString === '0'
@@ -27,12 +37,7 @@ const CalcHeader = () => {
       </div>
       <div
         style={{
-          fontSize:
-            number.length <= 9
-              ? '48px'
-              : operationString.length <= 9
-              ? '48px'
-              : 308 / number.length,
+          fontSize: `${checkLengthTwo()}px`,
         }}
         className="calc__input"
       >

@@ -11,7 +11,7 @@ const initState = {
   allNumbers: [],
   operation: [],
   operationString: '0',
-  result: null,
+  result: 0,
   showResult: false,
 }
 
@@ -73,6 +73,9 @@ const calcReducer = (state = initState, action) => {
       }
 
     case CALC_EQUALS:
+      if (state.number == 0 || state.operationString == '0') {
+        return { ...state }
+      }
       let result
       let string = state.operationString + state.number
       if (state.result === null) {
